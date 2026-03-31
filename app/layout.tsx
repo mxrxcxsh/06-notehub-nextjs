@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import Provider from '@/components/Provider/Provider';
+import Provider from '@/components/TanStackProvider/TanStackProvider';
 import './globals.css';
 import 'modern-normalize';
 import Header from '@/components/Header/Header';
