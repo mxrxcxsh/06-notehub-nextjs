@@ -28,7 +28,7 @@ function NoteForm({ onClose }: NoteFormProps) {
     mutationFn: createNote,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['notes'] });
-      onClose(); // закрываем модалку
+      onClose();
     },
   });
 
@@ -41,6 +41,7 @@ function NoteForm({ onClose }: NoteFormProps) {
       }}
       validationSchema={validationSchema}
       onSubmit={values => {
+        console.log('SUBMIT', values);
         createNoteM.mutate(values);
       }}
     >

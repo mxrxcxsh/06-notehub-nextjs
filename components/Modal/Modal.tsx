@@ -12,7 +12,6 @@ function Modal({ children, onClose }: ModalProps) {
   const modalRoot = document.getElementById('modal-root')!;
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      e.preventDefault();
       if (e.key === 'Escape') {
         onClose();
       }
@@ -27,7 +26,6 @@ function Modal({ children, onClose }: ModalProps) {
   }, [onClose]);
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
     if (e.target === e.currentTarget) {
       onClose();
     }
