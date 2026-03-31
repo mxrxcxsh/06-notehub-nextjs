@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import type { Note, CreateNote } from '@/types/note';
 
-const TOKEN = process.env.SECRET_API_KEY;
+const TOKEN = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
 
 axios.defaults.baseURL = 'https://notehub-public.goit.study/api/';
 
@@ -28,6 +28,13 @@ export const fetchNotes = async ({
       perPage,
       search: query,
     },
+    headers: { Authorization: `Bearer ${TOKEN}` },
+  });
+  return data;
+};
+
+export const fetchNoteById = async (id: string): Promise<Note> => {
+  const { data } = await axios.get<Note>(`/notes/${id}`, {
     headers: { Authorization: `Bearer ${TOKEN}` },
   });
   return data;
